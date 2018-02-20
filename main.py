@@ -2,6 +2,14 @@
 # a simple recipe viewer
 # author: Noah Garringer
 
+# Load Libraries
+import curses
+
+
+# Settings for curses
+curses.noecho()
+curses.cbreak()
+stdscr.keypad(False)
 
 # Load Existing Recipes
 
