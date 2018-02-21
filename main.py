@@ -5,24 +5,41 @@
 # Load Libraries
 import curses
 
+stdscr = curses.initscr()
 
-# Settings for curses
+# Properly initialize screen
 curses.noecho()
 curses.cbreak()
-stdscr.keypad(False)
+curses.curs_set(0)
 
-# Load Existing Recipes
+# Check for and begin color support
+if curses.has_colors():
+    curses.start_color()
+
+# enable multibyte keysignal support
+stdscr.keypad(1)
+
+# Set curses colors
+curses.init_pair(1, curses.COLOR_RED, curses.COLOR_BLACK)
+curses.init_pair(2, curses.COLOR_GREEN, curses.COLOR_BLACK)
+curses.init_pair(3, curses.COLOR_BLUE, curses.COLOR_BLACK)
 
 
-# This is what the real main menu will be.  it will just be a list of the currently "owned" recipes
-# Launch Main Menu List
-# print(recipeList)
+# Create UI
+def mainMenu():
+    stdscr.addstr(0, 0, "gitfud", curses.A_REVERSE)
+    stdscr.addstr(curses.LINES-1, 0, "Press q to quit")
+
+    stdscr.refresh()
+
+    return 0
 
 
-# fake main menu.  this is being created simply to get me to other parts of the program...
-# I don't want to start with writing the "load existing recipes" function
-print("Main Menu")
-print("1.  View Recipes")
-print("2.  Add Recipe")
-print("3.  Edit Recipe")
-print("4.  Remove Recipe")
+def main():
+
+    curses.endwin()
+
+    return 0
+
+
+main()
