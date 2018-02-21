@@ -37,6 +37,8 @@ def mainMenu():
 
 def main():
 
+    mainMenu()
+
     curses.endwin()
 
     return 0

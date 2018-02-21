@@ -3,14 +3,14 @@
 A simple recipe viewer.
 
 
-This program is meant to fill in a lot of issues I have with existing recipe solutions.  Current recipe solutions are mainly web based and bloated.  To actually view a recipe, one has to sift through blog type articles and ads to even view the actual recipe.  My goal is to make this program as minimalist as possible, in all senses.
+This program is meant to fill in a lot of issues I have with existing recipe solutions.  Current recipe solutions are mainly web based and bloated.  To view a recipe, one has to sift through blog type articles and ads to even view the actual recipe.  My goal is to make this program as minimalist as possible.
 
 
 
 Development will be broken down into stages.
 
 ### Phase 1
-* CLI Design
+* CLI Design - utilizing curses
 * Basic Functions
     * View
     * Add
