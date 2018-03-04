@@ -32,7 +32,7 @@ def mainMenu():
     stdscr.chgat(-1, curses.A_REVERSE)
 
     # Add Bottom Line (instructions to user go here)
-    stdscr.addstr(curses.LINES-1, 0, "Press q to quit")
+    stdscr.addstr(curses.LINES-1, 0, "Press Q to quit")
 
     # Chanage the Q to red
     stdscr.chgat(curses.LINES-1, 6, 1, curses.A_BOLD | curses.color_pair(1))
@@ -41,12 +41,12 @@ def mainMenu():
     list_window = curses.newwin(curses.LINES-2, curses.COLS, 1, 0)
 
     # Create sub-window for list of recipes (seperates from the border)
-    list_recipes_window = list_window.subwin(curses.LINES-6, curses.COLS-4, 3, 2)
+    list_text_window = list_window.subwin(curses.LINES-6, curses.COLS-4, 3, 2)
 
     # Load recipes
 
     # List recipes
-    list_recipes_window.addstr("Stuff will go here later")
+    list_text_window.addstr("Stuff will go here later")
 
     # Draw list border
     list_window.box()
@@ -58,17 +58,27 @@ def mainMenu():
     # redraw screen
     curses.doupdate()
 
-    # Event Loop
+    # Main Event Loop
     while True:
+        # Wait for user input
         c = list_window.getch()
 
+        # Evaluates the input
+
+        # Selection Up
+        # if c == curses.KEY_UP:
+            #
+        # Selection Down
+        # elif c == curses.KEY_DOWN:
+            #
+        # Close the Program
         if c == ord('q') or c == ord('Q'):
             break
-
+        
         # Refresh the Screen from the bottom up
         stdscr.noutrefresh()
         list_window.noutrefresh()
-        list_recipes_window.noutrefresh()
+        list_text_window.noutrefresh()
         curses.doupdate()
 
     return 0
